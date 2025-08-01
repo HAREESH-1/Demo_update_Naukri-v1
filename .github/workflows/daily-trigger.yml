@@ -3,6 +3,7 @@ name: Daily Trigger at 8:50 AM on leaf-1
 on:
   schedule:
     - cron: '50 8 * * *'  # Runs daily at 8:50 AM UTC
+  workflow_dispatch:  # Enables manual trigger in GitHub UI
   push:
     branches:
       - feature_hari-v1
