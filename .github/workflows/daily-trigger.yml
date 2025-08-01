@@ -6,11 +6,11 @@ on:
   workflow_dispatch:  # Enables manual trigger in GitHub UI
   push:
     branches:
-      - feature_hari-v1
+      - master
 
 jobs:
   run-code:
-    if: github.ref == 'refs/heads/feature_hari-v1'
+    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
 
     steps:
