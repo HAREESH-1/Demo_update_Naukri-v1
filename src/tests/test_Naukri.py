@@ -12,12 +12,20 @@ from src.config.config import Base_URL, new_username, profile_url, email, pwd
 from src.locators.locators import *
 
 
+# @pytest.fixture
+# def driver():
+#     driver = webdriver.Chrome()
+#     yield driver
+#     driver.quit()
 @pytest.fixture
 def driver():
-    driver = webdriver.Chrome()
+    options = webdriver.ChromeOptions()
+    options.add_argument("--headless=new")  # Use headless mode
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
+    driver = webdriver.Chrome(options=options)
     yield driver
     driver.quit()
-
 
 def login_naukri(driver, username, password):
     driver.get(Base_URL)
